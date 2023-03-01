@@ -6,6 +6,7 @@ jobs:
     steps:
       - name: Run lint command
         run: |
+          npm ci
           npm run lint
           echo "Lint command executed"
   test:
