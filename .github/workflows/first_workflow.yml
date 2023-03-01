@@ -1,0 +1,26 @@
+name: Workflow Number 1
+on: push
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run lint command
+        run: |
+          npm run lint
+          echo "Lint command executed"
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run test command
+        run: |
+          npm run test
+          echo "Test command executed"
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run build command
+        run: |
+          npm run build
+          echo "Build command executed :)"
